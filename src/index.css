@@ -11,3 +11,42 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+footer {
+  position: relative;
+  display: flex;
+  align-items: top;
+}
+
+ul.footer {
+  display: inline-block;
+  vertical-align: top;
+  overflow: hidden;
+}
+
+ul.nav {
+  list-style: none;
+  vertical-align: top;
+  margin-top: 0;
+}
+
+li.nav {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+header {
+  display: inline-block;
+  margin: auto;
+}
+
+nav {
+  display: inline-block;
+  vertical-align: 70%;
+}
+
+img.footer {
+  display: block;
+  top: 10%;
+  align-self: center;
+}
