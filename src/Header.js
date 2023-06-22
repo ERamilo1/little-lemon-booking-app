@@ -1,13 +1,10 @@
 import logo from "./images/Logo.png"
 
-function Header(props){
+function Header(){
     return(
-        <>
-            <header>
-                <img src={logo} className="header"/>
-            </header>
-            {props.children}
-        </>
+        <header>
+            <img src={logo} className="header"/>
+        </header>
     );
 }
 
