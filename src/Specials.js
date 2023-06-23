@@ -12,7 +12,9 @@ function Specials(props) {
                 <p className="description">{props.children}</p>
                 <div className="order">
                     <p>Order Delivery</p>
-                    <img src={dish} />
+                    <a href="onlineOrder">
+                        <img src={dish} />
+                    </a>
                 </div>
             </div>
         </article>
