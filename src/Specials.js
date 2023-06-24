@@ -1,4 +1,5 @@
 import dish from "./images/dish.svg"
+import { Link } from "react-router-dom";
 
 function Specials(props) {
     return(
@@ -12,9 +13,9 @@ function Specials(props) {
                 <p className="description">{props.children}</p>
                 <div className="order">
                     <p>Order Delivery</p>
-                    <a href="onlineOrder">
+                    <Link to="/onlineOrder">
                         <img src={dish} />
-                    </a>
+                    </Link>
                 </div>
             </div>
         </article>

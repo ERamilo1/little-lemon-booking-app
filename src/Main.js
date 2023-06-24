@@ -10,6 +10,7 @@ import user1 from "./images/randomUser1.jpg"
 import user2 from "./images/randomUser2.jpg"
 import user3 from "./images/randomUser3.jpg"
 import user4 from "./images/randomUser4.jpg"
+import { Link } from "react-router-dom";
 
 function Main(){
     return(
@@ -20,18 +21,18 @@ function Main(){
                         <h1 className="intro">Little Lemon</h1>
                         <h2 className="intro">Chicago</h2>
                         <article className="intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</article>
-                        <a href="reservations">
+                        <Link to="/reservations">
                             <Button className="reserve" text="Reserve a Table"/>
-                        </a>
+                        </Link>
                     </div>
                     <img src={restaurantFood} className="intro"/>
                 </section>
             </div>
             <section className="specials">
                 <h2 className="specials">This Week's Specials!</h2>
-                <a href="menu">
+                <Link to="/menu">
                     <Button className="specials" text="Online Menu"/>
-                </a>
+                </Link>
                 <Specials id="greekSalad" dish="Greek Salad" price="$12.99" image={salad}>
                 The famous greek salad of crispy lettuce, peppers, olives and our Chicago style feta cheese, garnished with crunchy garlic and rosemary croutons. 
                 </Specials>

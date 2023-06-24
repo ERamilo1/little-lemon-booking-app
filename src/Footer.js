@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "./images/Logo.svg"
 
 function Footer(){
@@ -7,12 +8,12 @@ function Footer(){
                 <img src={logo} className="footer"/>
                 <ul className="footer">
                     <h4>Navigation</h4>
-                    <li><a href="/home">Home</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/menu">Menu</a></li>
-                    <li><a href="/reservations">Reservations</a></li>
-                    <li><a href="/onlineOrder">Order Online</a></li>
-                    <li><a href="/login">Login</a></li>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/about">About</Link></li>
+                    <li><Link to="/menu">Menu</Link></li>
+                    <li><Link to="/reservations">Reservations</Link></li>
+                    <li><Link to="/onlineOrder">Order Online</Link></li>
+                    <li><Link to="/login">Login</Link></li>
                 </ul>
                 <ul className="footer">
                     <h4>Contact</h4>
