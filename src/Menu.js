@@ -4,10 +4,7 @@ import Nav from "./Nav"
 function Menu() {
     return(
         <>
-            <div className="header">
-                <Header></Header>
-                <Nav></Nav>
-            </div>
+            <Header/>
             <h1>
                 Menu Page
             </h1>

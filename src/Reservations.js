@@ -4,10 +4,7 @@ import Nav from "./Nav";
 function Reservations() {
     return(
         <>
-            <div className="header">
-                <Header></Header>
-                <Nav></Nav>
-            </div>
+            <Header/>
             <h1>Book Reservations Here!</h1>
         </>
     )

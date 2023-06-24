@@ -5,10 +5,7 @@ import Nav from "./Nav";
 function About() {
     return(
         <>
-            <div className="header">
-                <Header></Header>
-                <Nav></Nav>
-            </div>
+            <Header/>
             <h1>About</h1>
         </>
     )

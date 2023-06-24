@@ -6,12 +6,9 @@ import Footer from "./Footer"
 function Home() {
     return(
     <>
-        <div className="header">
-            <Header></Header>
-            <Nav></Nav>
-        </div>
-        <Main></Main>
-        <Footer></Footer>
+        <Header/>
+        <Main/>
+        <Footer/>
     </>
     );
 }
