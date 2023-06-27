@@ -20,7 +20,7 @@ function BookingForm(props) {
                 <input type="date" name="res_date" id="res_date" aria-labelledby="res_date" onChange={(e) => {setDate(e.target.value); props.dispatch(); console.log({availableTimes})}} value={date}/>
                 <label htmlFor="res_time" id="res_time">Time</label>
                 <select id="res_time" aria-labelledby="res_time" onChange={(e) => setTime(e.target.value)} value={time}>
-                    {availableTimes.map((x) => <option key={x}>{x}</option>)}
+                    {availableTimes?.map((x) => <option key={x}>{x}</option>)}
                 </select>
                 <label htmlFor="guests" id="guests">Number of Guests</label>
                 <input type="number" aria-labelledby="guests" placeholder="1" name="guests" id="guests" min="1" max="10" onChange={e => {setGuests(e.target.value)}} value={guests}/>
