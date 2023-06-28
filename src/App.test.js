@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import App from './App';
 import BookingForm from './BookingForm';
 import { initializeTimes, updateTimes} from './App';
@@ -19,4 +19,15 @@ test("updateTimes function returns the same value that is provided in state", ()
   const testState = ["d", "e", "f"];
 
   expect(updateTimes(testState, null)).toStrictEqual(["d", "e", "f"]);
+})
+
+test("Form is submitted after user clicks submit button", () => {
+  const onSubmit = jest.fn();
+
+  render(<BookingForm onSubmit={onSubmit}/>);
+
+  const submitButton = screen.getByText(/Make your/);
+  fireEvent.click(submitButton);
+
+  expect(onSubmit).toHaveBeenCalled();
 })

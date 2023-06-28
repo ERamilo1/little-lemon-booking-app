@@ -9,6 +9,11 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import BookingForm from './BookingForm';
 import { useState, useReducer } from 'react';
 
+const submitHandler = (e) => {
+  e.preventDefault();
+  console.log("Form Submitted!");
+}
+
 export const updateTimes = (state, action) => {
   return state;
 }
@@ -29,7 +34,7 @@ function App() {
         <Routes>
           <Route index element={<Home />}/>
           <Route path="menu" element={<Menu />}/>
-          <Route path="reservations" element={<BookingForm avTime={state} dispatch={dispatch}/>}/>
+          <Route path="reservations" element={<BookingForm avTime={state} dispatch={dispatch} onSubmit={submitHandler}/>}/>
           <Route path="about" element={<About />}/>
           <Route path="login" element={<Login />}/>
           <Route path="onlineOrder" element={<Online />}/>
