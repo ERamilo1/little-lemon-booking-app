@@ -6,11 +6,12 @@ function BookingForm(props) {
     const [guests, setGuests] = useState(1);
     const [occasion, setOccasion] = useState("");
     const availableTimes = props.avTime;
+    const handleSubmit = props.onSubmit;
 
     return(
         <>
             <h1>Book Now</h1>
-            <form style={{display: "grid", maxWidth: "200px", gap: "20px"}} onSubmit={props.onSubmit}>
+            <form style={{display: "grid", maxWidth: "200px", gap: "20px"}} onSubmit={handleSubmit}>
                 <label htmlFor="res_date" id="res_date">Date</label>
                 <input type="date" name="res_date" id="res_date" aria-labelledby="res_date" onChange={(e) => {setDate(e.target.value); props.dispatch(); console.log({availableTimes})}} value={date}/>
                 <label htmlFor="res_time" id="res_time">Time</label>

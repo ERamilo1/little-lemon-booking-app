@@ -22,12 +22,12 @@ test("updateTimes function returns the same value that is provided in state", ()
 })
 
 test("Form is submitted after user clicks submit button", () => {
-  const onSubmit = jest.fn();
+  const handleSubmit = jest.fn(e => e.preventDefault());
 
-  render(<BookingForm onSubmit={onSubmit}/>);
+  render(<BookingForm onSubmit={handleSubmit}/>);
 
   const submitButton = screen.getByText(/Make your/);
   fireEvent.click(submitButton);
 
-  expect(onSubmit).toHaveBeenCalled();
+  expect(handleSubmit).toHaveBeenCalled();
 })
