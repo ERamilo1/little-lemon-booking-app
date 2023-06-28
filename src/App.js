@@ -14,14 +14,14 @@ function App() {
     return state;
   }
 
-  const initializeTimes = () => {
-    const initialState = ["15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
+  const initialTimes = ["15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
+
+  const initializeTimes = (x) => {
+    const initialState = x;
     return initialState;
   }
 
-  const initialState2 = ["15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
-
-  const [state, dispatch] = useReducer(updateTimes, initializeTimes());
+  const [state, dispatch] = useReducer(updateTimes, initializeTimes(initialTimes));
 
   return (
     <>
