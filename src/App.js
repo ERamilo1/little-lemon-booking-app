@@ -9,18 +9,18 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import BookingForm from './BookingForm';
 import { useState, useReducer } from 'react';
 
+export const updateTimes = (state, action) => {
+  return state;
+}
+
+const initialTimes = ["15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
+
+export const initializeTimes = (x) => {
+  const initialState = x;
+  return initialState;
+}
+
 function App() {
-  const updateTimes = (state, action) => {
-    return state;
-  }
-
-  const initialTimes = ["15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
-
-  const initializeTimes = (x) => {
-    const initialState = x;
-    return initialState;
-  }
-
   const [state, dispatch] = useReducer(updateTimes, initializeTimes(initialTimes));
 
   return (
