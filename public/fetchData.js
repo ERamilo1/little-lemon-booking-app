@@ -7,8 +7,6 @@ const seededRandom = function (seed) {
     };
 }
 
-const todayDate = new Date('December 17, 1995 03:24:00');
-
 function fetchAPI(date) {
     let result = [];
     let random = seededRandom(date.getDate());
