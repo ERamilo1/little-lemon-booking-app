@@ -4,7 +4,8 @@ import Menu from "./Menu";
 import About from './About';
 import Login from './Login';
 import Online from './Online';
-import Reservations from "./Reservations"
+import Reservations from "./Reservations";
+import Test from './Test';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import BookingForm from './BookingForm';
 import { useState, useReducer } from 'react';
@@ -15,18 +16,19 @@ const submitHandler = (e) => {
 }
 
 export const updateTimes = (state, action) => {
+  state = window.fetchAPI(action);
   return state;
 }
 
-const initialTimes = ["15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
+const todaysDate = new Date("June 29, 2023");
 
 export const initializeTimes = (x) => {
-  const initialState = x;
-  return initialState;
-}
+  const initialState = window.fetchAPI(x);
+    return initialState;
+  }
 
 function App() {
-  const [state, dispatch] = useReducer(updateTimes, initializeTimes(initialTimes));
+  const [state, dispatch] = useReducer(updateTimes, initializeTimes(todaysDate));
 
   return (
     <>
@@ -36,7 +38,7 @@ function App() {
           <Route path="menu" element={<Menu />}/>
           <Route path="reservations" element={<BookingForm avTime={state} dispatch={dispatch} onSubmit={submitHandler}/>}/>
           <Route path="about" element={<About />}/>
-          <Route path="login" element={<Login />}/>
+          <Route path="login" element={<Test />}/>
           <Route path="onlineOrder" element={<Online />}/>
         </Routes>
       </BrowserRouter>

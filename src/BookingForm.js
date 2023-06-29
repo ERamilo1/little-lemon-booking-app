@@ -13,7 +13,7 @@ function BookingForm(props) {
             <h1>Book Now</h1>
             <form style={{display: "grid", maxWidth: "200px", gap: "20px"}} onSubmit={handleSubmit}>
                 <label htmlFor="res_date" id="res_date">Date</label>
-                <input type="date" name="res_date" id="res_date" aria-labelledby="res_date" onChange={(e) => {setDate(e.target.value); props.dispatch(); console.log({availableTimes})}} value={date}/>
+                <input type="date" name="res_date" id="res_date" aria-labelledby="res_date" onChange={(e) => {setDate(e.target.value); props.dispatch(new Date(e.target.value)); console.log({availableTimes})}} value={date}/>
                 <label htmlFor="res_time" id="res_time">Time</label>
                 <select id="res_time" aria-labelledby="res_time" onChange={(e) => setTime(e.target.value)} value={time}>
                     {availableTimes?.map((x) => <option key={x}>{x}</option>)}
