@@ -7,16 +7,8 @@ function BookingForm(props) {
     const [guests, setGuests] = useState(1);
     const [occasion, setOccasion] = useState("");
     const availableTimes = props.avTime;
-    const handleSubmit = props.onSubmit;
     const formData = {date: date, time: time, guests: guests, occasion: occasion};
-    const navigate = useNavigate();
-
-    const submitForm = (data) => (e) => {
-        e.preventDefault();
-        const confirmation = window.submitAPI(data);
-        navigate(confirmation ? "/bookingConfirmation" : null);
-        confirmation ? console.log("Form Submitted!") : console.log("Error");
-    }
+    const submitForm = props.submitForm;
 
     return(
         <>

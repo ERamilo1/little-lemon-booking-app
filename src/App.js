@@ -25,27 +25,27 @@ export const initializeTimes = (x) => {
 
 function App() {
   const [state, dispatch] = useReducer(updateTimes, initializeTimes(todaysDate));
-  const [confirmation, setConfirmation] = useState(false);
+
+  const navigate = useNavigate();
 
   const submitForm = (data) => (e) => {
     e.preventDefault();
-    setConfirmation(window.submitAPI(data));
-    console.log("Form Submitted!");
+    const confirmation = window.submitAPI(data);
+    navigate(confirmation ? "/bookingConfirmation" : null)
+    confirmation ? console.log("Form Submitted!") : console.log("Error");
   }
 
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route index element={<Home />}/>
-          <Route path="menu" element={<Menu />}/>
-          <Route path="reservations" element={<BookingForm avTime={state} dispatch={dispatch} />}/>
-          <Route path="about" element={<About />}/>
-          <Route path="login" element={<Login />}/>
-          <Route path="onlineOrder" element={<Online />}/>
-          <Route path="bookingConfirmation" element={<ConfirmedBooking />}/>
-        </Routes>
-      </BrowserRouter>
+      <Routes>
+        <Route index element={<Home />}/>
+        <Route path="menu" element={<Menu />}/>
+        <Route path="reservations" element={<BookingForm avTime={state} dispatch={dispatch} submitForm={submitForm}/>}/>
+        <Route path="about" element={<About />}/>
+        <Route path="login" element={<Login />}/>
+        <Route path="onlineOrder" element={<Online />}/>
+        <Route path="bookingConfirmation" element={<ConfirmedBooking />}/>
+      </Routes>
     </>
   );
 }
