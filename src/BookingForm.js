@@ -8,7 +8,7 @@ function BookingForm(props) {
     const [occasion, setOccasion] = useState("");
     const availableTimes = props.avTime;
     const formData = {date: date, time: time, guests: guests, occasion: occasion};
-    const submitForm = props.submitForm;
+    const submitForm = props.onSubmit;
 
     return(
         <>

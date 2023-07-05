@@ -40,7 +40,7 @@ function App() {
       <Routes>
         <Route index element={<Home />}/>
         <Route path="menu" element={<Menu />}/>
-        <Route path="reservations" element={<BookingForm avTime={state} dispatch={dispatch} submitForm={submitForm}/>}/>
+        <Route path="reservations" element={<BookingForm avTime={state} dispatch={dispatch} onSubmit={submitForm}/>}/>
         <Route path="about" element={<About />}/>
         <Route path="login" element={<Login />}/>
         <Route path="onlineOrder" element={<Online />}/>
