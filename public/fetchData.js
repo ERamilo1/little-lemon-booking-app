@@ -30,3 +30,6 @@ function add(x) {
     let result = x+1;
     return result;
 };
+
+exports.add = add;
+exports.fetchAPI = fetchAPI;

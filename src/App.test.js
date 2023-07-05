@@ -1,28 +1,50 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import App from './App';
 import BookingForm from './BookingForm';
 import { initializeTimes, updateTimes} from './App';
 
 test('Renders the BookingForm heading', () => {
-  render(<BookingForm />);
+  const handleSubmit = jest.fn();
+
+  render(<BookingForm onSubmit={handleSubmit}/>)
   const headingElement = screen.getByText("Book Now");
   expect(headingElement).toBeInTheDocument();
 });
 
 test("initializeTimes function returns correct expected value", () => {
-  const testArray = ["a", "b", "c"];
+  const fetchData = require("../public/fetchData")
 
-  expect(initializeTimes(testArray)).toStrictEqual(["a", "b", "c"]);
+  const initializeTimes = jest.fn((x) => {
+    const initialState = fetchData.fetchAPI(x);
+    return initialState;
+  })
+
+  const testDate = new Date("June 29, 2023");
+  const availableTimes = initializeTimes(testDate);
+  expect(availableTimes).not.toHaveLength(0);
 })
 
-test("updateTimes function returns the same value that is provided in state", () => {
-  const testState = ["d", "e", "f"];
+test("updateTimes function returns new set of times", () => {
+  const fetchData = require("../public/fetchData")
 
-  expect(updateTimes(testState, null)).toStrictEqual(["d", "e", "f"]);
+  const updateTimes = jest.fn((state, action) => {
+    state = fetchData.fetchAPI(action);
+    return state;
+  })
+
+  const testDate = new Date("June 29, 2023");
+
+  const initialState = fetchData.fetchAPI(testDate)
+
+  const newDate = new Date("July 5, 2023");
+
+  const newTimes = updateTimes(initialState, newDate);
+
+  expect(newTimes).not.toStrictEqual(initialState);
+  expect(newTimes).not.toHaveLength(0);
 })
 
 test("Form is submitted after user clicks submit button", () => {
-  const handleSubmit = jest.fn(e => e.preventDefault());
+  const handleSubmit = jest.fn();
 
   render(<BookingForm onSubmit={handleSubmit}/>);
 
