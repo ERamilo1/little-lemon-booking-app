@@ -1,6 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import BookingForm from './BookingForm';
-import { initializeTimes, updateTimes} from './App';
 
 test('Renders the BookingForm heading', () => {
   const handleSubmit = jest.fn();
