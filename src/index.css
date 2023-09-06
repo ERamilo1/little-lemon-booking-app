@@ -407,3 +407,22 @@ ul.footer {
 img.footer {
   margin-top: 20px;
 }
+
+form {
+  display: grid;
+  gap: 0px;
+  align-items: start;
+}
+
+form label {
+  margin-top: 20px;;
+}
+
+input#submit {
+  margin-top: 20px;
+}
+
+form span {
+  font-size: 8pt;
+  color: red;
+}
