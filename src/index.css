@@ -50,8 +50,8 @@ button:hover {
 }
 
 button:active {
-  background-color: #495E57;
-  color: white;
+  background-color:#FBDABB;
+  color: black;
   border-style:solid ;
   border-color: black;
 }
@@ -412,6 +412,9 @@ form {
   display: grid;
   gap: 0px;
   align-items: start;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
 }
 
 form label {
@@ -419,10 +422,118 @@ form label {
 }
 
 input#submit {
-  margin-top: 20px;
+  margin-top: 10px;
+  width: 200px;
+  height: 60px;
+  margin: 15px auto auto auto;
 }
 
 form span {
-  font-size: 8pt;
-  color: red;
+  position: relative;
+  bottom: 20px;
+  font-family: Karla;
+  font-size: 12pt;
+  color:#F4CE14;
 }
+
+form label {
+  margin-top: 0px;
+  width: auto;
+  color: white;
+  font-family: Mikazi;
+  font-size: 16pt;
+}
+
+form input{
+  box-sizing: border-box;
+  width: 300px;
+  height: 40px;
+  border: .8px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-family: Karla;
+  font-size: 12pt;
+}
+
+form select {
+  box-sizing: border-box;
+  width: 300px;
+  height: 40px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-family: Karla;
+  font-size: 12pt;
+}
+
+div.form {
+  display: flex;
+  flex-direction: column;
+  max-width: 960px;
+  background-color:#495E5790;
+  margin: auto;
+}
+
+div.formIMG {
+  grid-column: 3/ span 8;
+  max-width: 960px;
+  background-image: url(./images/restaurant.jpg);
+}
+
+div.formBG {
+  grid-column: 1/ span 12;
+  background-color:#495E57;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+h1.form {
+  max-width: 290px;
+  margin-left:auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  font-weight:bold;
+  font-family: Markazi;
+  color: white;
+}
+
+input#submit:enabled {
+  background-color: white;
+  width: 200px;
+  height: 60px;
+  border-radius: 5px;
+  font-size: 18px;
+  border: 2px;
+  border-color: black;
+}
+
+input#submit:enabled:hover {
+  color:#495E57;
+}
+
+input#submit:enabled:active {
+  background-color:#FBDABB;
+  color: black;
+  border-style:solid ;
+  border-color: black;
+}
+
+/*input#submit{
+  background-color: #F4CE14;
+  width: 200px;
+  height: 60px;
+  border-radius: 5px;
+  font-size: 18px;
+  border: 2px;
+  border-color: black;
+}
+
+input#submit:hover {
+  color:#495E57;
+}
+
+input#submit:active {
+  background-color: #495E57;
+  color: white;
+  border-style:solid ;
+  border-color: black;
+}*/
