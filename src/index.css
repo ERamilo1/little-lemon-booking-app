@@ -448,7 +448,7 @@ form input{
   box-sizing: border-box;
   width: 300px;
   height: 40px;
-  border: .8px;
+  border: 0;
   margin-bottom: 20px;
   border-radius: 5px;
   font-family: Karla;
@@ -463,6 +463,14 @@ form select {
   border-radius: 5px;
   font-family: Karla;
   font-size: 12pt;
+}
+
+form input:invalid[focused="true"] {
+  border: solid #F4CE14 medium;
+}
+
+form select[focused="true"][invalid="true"] {
+  border: solid #F4CE14 medium;
 }
 
 div.form {
