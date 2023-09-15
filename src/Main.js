@@ -17,13 +17,15 @@ function Main(){
         <main>
             <div className="main1">
                 <section className="intro">
-                    <div className="intro">
-                        <h1 className="intro">Little Lemon</h1>
-                        <h2 className="intro">Chicago</h2>
-                        <article className="intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</article>
-                        <Link to="/reservations">
-                            <Button className="reserve" text="Reserve a Table"/>
-                        </Link>
+                    <div className="introBG">
+                        <div className="intro">
+                            <h1 className="intro">Little Lemon</h1>
+                            <h2 className="intro">Chicago</h2>
+                            <article className="intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</article>
+                            <Link to="/reservations">
+                                <Button className="reserve" text="Reserve a Table"/>
+                            </Link>
+                        </div>
                     </div>
                     <img src={restaurantFood} className="intro"/>
                 </section>

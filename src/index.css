@@ -42,7 +42,7 @@ button {
 }
 
 button.reserve {
-  margin-top: 30px;
+  margin-top: 0px;
 }
 
 button:hover {
@@ -111,6 +111,20 @@ li.nav {
   display: inline-block;
 }
 
+@media (max-width: 1080px) {
+  div#root {
+    display: flex;
+    flex-direction: column;
+  }
+
+  div.header {
+    width: auto;
+    max-width: 1080px;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+}
+
 main {
   display: grid;
   grid-template-columns: 1fr 1080px 1fr;
@@ -120,10 +134,11 @@ main {
 
 div.main1 {
   display: grid;
-  grid-template-columns: 1fr 1080px 1fr;
+  grid-template-columns: 1fr auto 1fr;
   grid-column: 1/ span 3;
   height: 400px;
   background-color: #495E57;
+  min-width: 375px;
 }
 
 section.intro {
@@ -131,21 +146,31 @@ section.intro {
   justify-content: space-between;
   grid-row: 1;
   grid-column: 2;
+  width:100%;
   max-width: 1080px;
+  min-width: 375px;
 }
 
 div.intro {
+  display: flex;
+  flex-direction: column;
   margin-right: auto;
+  width: fit-content;
+  max-width: 815px;
 }
 
 h1.intro {
   color: #F4CE14;
-  margin: 20px 0
+  margin: 20px 0;
+  width: fit-content;
 }
 
 h2.intro {
   color: white;
   margin: 20px 0;
+  width: fit-content;
+  position: relative;
+  bottom: 20px;
 }
 
 article.intro {
@@ -156,11 +181,65 @@ article.intro {
 }
 
 img.intro {
-  max-width: 29%;
+  display: block;
+  width: 300px;
   height: auto;
   max-height: 400px;
   margin-top: 25px;
   align-self: start;
+  position: relative;
+  right: 75px;
+}
+
+div.intro a {
+  margin-top: 30px;
+  width: fit-content;
+  height: auto;
+}
+
+@media (max-width: 1080px) {
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  div.main1 {
+    background-color: #495E57;
+  }
+
+  section.intro {
+    align-content: center;
+    justify-content: center;
+    min-width: 375px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  div.intro {
+    min-width: 375px;
+    width: 375px;
+    height: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    z-index: 1;
+  }
+
+  div.introBG {
+    display: block;
+    background-image: url(./images/restaurantFood.jpg);
+    width: 400px;
+    background-size: 400px;
+    background-position: center;
+    background-color: #495E57b0;
+    background-blend-mode: multiply;
+    border-radius: 15px;
+  }
+
+  img.intro {
+    display: none;
+  }
+
 }
 
 section.specials {
@@ -386,10 +465,9 @@ article.bio {
 
 div.footer {
   display: grid;
-  grid-template-columns: 1fr 1080px 1fr;
+  grid-template-columns: 1fr auto 1fr;
   grid-column: 1/ span 12;
   background-color: #EDEFEE;
-  min-width: 960px;
 }
 
 footer {
@@ -399,7 +477,7 @@ footer {
   grid-column: 2;
   grid-row: 6;
   margin-bottom: 25px;
-  max-width: 1080px;
+  width: 1080px;
 }
 
 ul.footer {
@@ -409,6 +487,19 @@ ul.footer {
 
 img.footer {
   margin-top: 20px;
+}
+
+@media (max-width: 1080px) {
+  div.footer {
+    display: flex;
+  }
+
+  footer {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
 }
 
 form {

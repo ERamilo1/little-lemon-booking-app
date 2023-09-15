@@ -30,7 +30,7 @@ function BookingForm(props) {
                     <h1 className="form">Book Now</h1>
                     <form style={{maxWidth: "350px"}} onSubmit={submitForm(formData)}>
                         <label htmlFor="res_name">Name</label>
-                        <input type="text" name="res_name" id="res_name" aria-labelledby="res_name" minLength={3} onChange={(e) => {setName({...name, value: e.target.value})}} onBlur={(e) => {setName({...name, isTouched: true})}} required focused={name.isTouched.toString()}/>
+                        <input type="text" name="res_name" id="res_name" aria-labelledby="res_name" minLength={3} placeholder="Enter Name" onChange={(e) => {setName({...name, value: e.target.value})}} onBlur={(e) => {setName({...name, isTouched: true})}} required focused={name.isTouched.toString()}/>
                         {(!name.value || name.value.length < 3) && name.isTouched ? <span>Please enter a name. Must be greater than 3 characters.</span> : null }
                         <label htmlFor="res_date">Date</label>
                         <input type="date" name="res_date" id="res_date" aria-labelledby="res_date" min={todaysDate} required onChange={(e) => {setDate({...date, value: e.target.value}); props.dispatch(new Date(e.target.value))}} onBlur={() => {setDate({...date, isTouched: true})}} value={date.value} focused={date.isTouched.toString()}/>
