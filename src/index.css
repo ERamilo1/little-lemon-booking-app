@@ -80,6 +80,8 @@ div.header {
   position: sticky;
   top: 0px;
   background-color: white;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 header {
@@ -88,6 +90,15 @@ header {
   grid-row: 1;
   max-width: 148;
   margin: auto;
+}
+
+div.headerBG {
+  grid-column: 1/ span 3;
+  width: 100%;
+  background-color: white;
+  position: sticky;
+  top: 0px;
+  z-index: 1;
 }
 
 nav {
