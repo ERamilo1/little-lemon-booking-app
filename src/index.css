@@ -630,6 +630,18 @@ img.footer {
 
 }
 
+@media (max-width: 600px) {
+  ul#footerNav {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  ul#footerSM {
+    display: none;
+  }
+}
+
 form {
   display: grid;
   gap: 0px;
@@ -747,24 +759,3 @@ input#submit:enabled:active {
   border-style:solid ;
   border-color: black;
 }
-
-/*input#submit{
-  background-color: #F4CE14;
-  width: 200px;
-  height: 60px;
-  border-radius: 5px;
-  font-size: 18px;
-  border: 2px;
-  border-color: black;
-}
-
-input#submit:hover {
-  color:#495E57;
-}
-
-input#submit:active {
-  background-color: #495E57;
-  color: white;
-  border-style:solid ;
-  border-color: black;
-}*/
