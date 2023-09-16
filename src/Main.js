@@ -57,7 +57,7 @@ function Main(){
                 </section>
             </div>
             <section className="bio">
-                <div>
+                <div className="bio">
                     <h2 className="bio">Little Lemon</h2>
                     <h3 className="bio">Chicago</h3>
                     <article className="bio">

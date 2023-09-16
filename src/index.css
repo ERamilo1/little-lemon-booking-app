@@ -77,6 +77,9 @@ div.header {
   grid-template-columns: repeat(8, 1fr);
   grid-column: 2;
   width: 1080px;
+  position: sticky;
+  top: 0px;
+  background-color: white;
 }
 
 header {
@@ -119,8 +122,14 @@ li.nav {
 
   div.header {
     width: auto;
-    max-width: 1080px;
-    margin-left: 15px;
+    max-width: 1110px;
+  }
+
+  header {
+    margin-left: 15px;;
+  }
+
+  ul.nav:nth-last-child(1) {
     margin-right: 15px;
   }
 }
@@ -205,6 +214,7 @@ div.intro a {
 
   div.main1 {
     background-color: #495E57;
+    min-width: 375px;
   }
 
   section.intro {
@@ -222,7 +232,6 @@ div.intro a {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: auto;
-    z-index: 1;
   }
 
   div.introBG {
@@ -352,6 +361,7 @@ div.specials a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    min-width: 375px;
   }
 
   section.specials article {
@@ -483,6 +493,7 @@ p.testimonials {
     justify-content: center;
     width: 100%;
     height: 820px;
+    min-width: 375px;
   }
 
   div.testimonials {
@@ -495,8 +506,6 @@ p.testimonials {
     margin-right: auto;
   }
 
-  article.testimonials {
-  }
 }
 
 section.bio {
@@ -505,7 +514,7 @@ section.bio {
   grid-row: 4;
   grid-column: 2;
   height: 340px;
-  max-width: 1080px;
+  max-width: 1110px;
 }
 
 img.bio {
@@ -531,6 +540,42 @@ h3.bio {
 article.bio {
   margin-top: 30px;
   margin-right: 40px;
+}
+
+@media (max-width: 1110px) {
+  section.bio {
+    height: fit-content;
+    width: 100%;
+  }
+
+  div.bio {
+    margin-left: auto;
+    margin-right: auto;
+    height: fit-content;
+    width: 440px;
+    height: 100%;
+    background-image: url(./images/marioAndAdrianA.jpg);
+    background-size: cover;
+    background-color:#2c2c2c;
+    background-blend-mode: overlay;
+    border-radius: 15px;
+    min-width: 375px;
+  }
+
+  div.bio > * {
+    max-width: 360px;
+    margin-left: auto;
+    margin-right: auto;
+    color:white;
+  }
+
+  article.bio {
+    margin-bottom: 30px;
+  }
+
+  img.bio {
+    display: none;
+  }
 }
 
 div.footer {
