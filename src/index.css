@@ -99,6 +99,9 @@ div.headerBG {
   position: sticky;
   top: 0px;
   z-index: 1;
+  transform: translateY(0px);
+  transition-property: transform;
+  transition-duration: 300ms;
 }
 
 nav {
