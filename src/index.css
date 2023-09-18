@@ -77,6 +77,7 @@ div.header {
   grid-template-columns: repeat(8, 1fr);
   grid-column: 2;
   width: 1080px;
+  min-width: 375px;
   position: sticky;
   top: 0px;
   background-color: white;
@@ -110,6 +111,7 @@ div.headerBG {
   transform: translateY(0px);
   transition-property: transform;
   transition-duration: 300ms;
+  box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.3);
 }
 
 nav {
@@ -341,8 +343,7 @@ div.intro a {
   }
 
   div.intro {
-    min-width: 375px;
-    width: 375px;
+    width: 360px;
     height: fit-content;
     margin-left: auto;
     margin-right: auto;
@@ -357,11 +358,19 @@ div.intro a {
     background-position: center;
     background-color: #495E57b0;
     background-blend-mode: multiply;
-    border-radius: 15px;
   }
 
   img.intro {
     display: none;
+  }
+
+  div.intro a {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  article.intro {
+    width: 100%;
   }
 
 }
@@ -673,7 +682,6 @@ article.bio {
     background-size: cover;
     background-color:#2c2c2c;
     background-blend-mode: overlay;
-    border-radius: 15px;
     min-width: 375px;
   }
 

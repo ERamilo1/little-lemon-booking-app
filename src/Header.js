@@ -15,9 +15,10 @@ function Header(){
                 return;
             }
             if(prevScrollPos > currentScrollPos){
-                headerElement.style.transform = "translateY(0px)"
+                headerElement.style.transform = "translateY(0px)";
+                headerElement.style.boxShadow = "0px 8px 10px 0px rgba(0, 0, 0, 0.3)"
             } else{
-                headerElement.style.transform = "translateY(-55px)"
+                headerElement.style.transform = "translateY(-66px)";
             }
 
             prevScrollPos = currentScrollPos;
