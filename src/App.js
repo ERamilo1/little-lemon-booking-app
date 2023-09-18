@@ -10,6 +10,7 @@ import {BrowserRouter, Routes, Route, useNavigate} from "react-router-dom";
 import BookingForm from './BookingForm';
 import { useState, useReducer, useEffect } from 'react';
 import ConfirmedBooking from './ConfirmedBooking';
+import ReservationForm from './ReservationForm';
 
 export const updateTimes = (state, action) => {
   state = window.fetchAPI(action);
@@ -40,7 +41,7 @@ function App() {
       <Routes>
         <Route index element={<Home />}/>
         <Route path="menu" element={<Menu />}/>
-        <Route path="reservations" element={<BookingForm avTime={state} dispatch={dispatch} onSubmit={submitForm}/>}/>
+        <Route path="reservations" element={<ReservationForm avTime={state} dispatch={dispatch} onSubmit={submitForm}/>}/>
         <Route path="about" element={<About />}/>
         <Route path="login" element={<Login />}/>
         <Route path="onlineOrder" element={<Online />}/>

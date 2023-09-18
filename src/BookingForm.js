@@ -1,13 +1,10 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Header from "./Header";
-import Footer from "./Footer";
 
 function BookingForm(props) {
     const [name, setName] = useState({value: "", isTouched: false});
     const [time, setTime] = useState({value: "Select a time", isTouched: false});
     const [date, setDate] = useState({value: "", isTouched: false});
-    const [guests, setGuests] = useState({value: null, isTouched: false});
+    const [guests, setGuests] = useState({value: "", isTouched: false});
     const [occasion, setOccasion] = useState({value: "Select an occasion", isTouched: false});
     const availableTimes = props.avTime;
     const formData = {date: date, time: time, guests: guests, occasion: occasion};
@@ -18,34 +15,33 @@ function BookingForm(props) {
     const day = ("0" + today.getDate()).slice(-2);
     const todaysDate = `${year}-${month}-${day}`;
     const getIsFormValid = () => {
-        return(date.value && time.value != "Select a time" && (guests.value < 11) && occasion.value != "Select an occasion" ? true : false);
+        return(name.value.length > 2 && date.value && time.value != "Select a time" && (guests.value < 11) && occasion.value != "Select an occasion" ? true : false);
     }
 
     return(
         <>
-        <Header></Header>
         <div className="formBG">
             <div className="formIMG">
                 <div className="form">
                     <h1 className="form">Book Now</h1>
                     <form style={{maxWidth: "350px"}} onSubmit={submitForm(formData)}>
-                        <label htmlFor="res_name">Name</label>
-                        <input type="text" name="res_name" id="res_name" aria-labelledby="res_name" minLength={3} placeholder="Enter Name" onChange={(e) => {setName({...name, value: e.target.value})}} onBlur={(e) => {setName({...name, isTouched: true})}} required focused={name.isTouched.toString()}/>
+                        <label htmlFor="res_name" id="res_name_aria">Name</label>
+                        <input type="text" name="res_name" id="res_name" aria-labelledby="res_name_aria" minLength={3} placeholder="Enter Name" onChange={(e) => {setName({...name, value: e.target.value})}} onBlur={(e) => {setName({...name, isTouched: true})}} required focused={name.isTouched.toString()}/>
                         {(!name.value || name.value.length < 3) && name.isTouched ? <span>Please enter a name. Must be greater than 3 characters.</span> : null }
-                        <label htmlFor="res_date">Date</label>
-                        <input type="date" name="res_date" id="res_date" aria-labelledby="res_date" min={todaysDate} required onChange={(e) => {setDate({...date, value: e.target.value}); props.dispatch(new Date(e.target.value))}} onBlur={() => {setDate({...date, isTouched: true})}} value={date.value} focused={date.isTouched.toString()}/>
+                        <label htmlFor="res_date" id="res_date_aria">Date</label>
+                        <input type="date" name="res_date" id="res_date" aria-labelledby="res_date_aria" min={todaysDate} required onChange={(e) => {setDate({...date, value: e.target.value}); props.dispatch(new Date(e.target.value))}} onBlur={() => {setDate({...date, isTouched: true})}} value={date.value} focused={date.isTouched.toString()}/>
                         {!date.value && date.isTouched ? <span>Please select a date</span> : null}
-                        <label htmlFor="res_time">Time</label>
-                        <select id="res_time" placeholder="Pick a time" aria-labelledby="res_time" onChange={(e) => setTime({...time, value: e.target.value})} onBlur={() => {setTime({...time, isTouched: true})}} value={time.value} required focused={time.isTouched.toString()} invalid={time.value == "Select a time" ? "true" : "false"}>
+                        <label htmlFor="res_time" id="res_time_aria">Time</label>
+                        <select id="res_time" placeholder="Pick a time" aria-labelledby="res_time_aria" onChange={(e) => setTime({...time, value: e.target.value})} onBlur={() => {setTime({...time, isTouched: true})}} value={time.value} required focused={time.isTouched.toString()} invalid={time.value == "Select a time" ? "true" : "false"}>
                             <option key="default">Select a time</option>
                             {availableTimes?.map((x) => <option key={x}>{x}</option>)}
                         </select>
                         {!(time.value != "Select a time") && time.isTouched ? <span>Please select a time</span> : null}
-                        <label htmlFor="guests">Number of Guests</label>
-                        <input type="number" aria-labelledby="guests" placeholder="Number of Guests" name="guests" id="guests" min="1" max="10" onChange={e => {setGuests({...guests, value: e.target.value})}} onBlur={() => setGuests({...guests, isTouched: true})} value={guests.value} required focused={guests.isTouched.toString()}/>
+                        <label htmlFor="guests" id="guests_aria">Number of Guests</label>
+                        <input type="number" aria-labelledby="guests_aria" placeholder="Number of Guests" name="guests" id="guests" min="1" max="10" onChange={e => {setGuests({...guests, value: e.target.value})}} onBlur={() => setGuests({...guests, isTouched: true})} value={guests.value} required focused={guests.isTouched.toString()}/>
                         {(!guests.value || !(guests.value < 11)) && guests.isTouched ? <span>Please select a number from 1 to 10</span> : null}
-                        <label htmlFor="occasion">Occasion</label>
-                        <select id="occasion" aria-labelledby="occasion" onChange={e => setOccasion({...occasion, value: e.target.value})} onBlur={() => {setOccasion({...occasion, isTouched: true})}} value={occasion.value} required focused={occasion.isTouched.toString()} invalid={occasion.value == "Select an occasion" ? "true" : "false"}>
+                        <label htmlFor="occasion" id="occasion_aria">Occasion</label>
+                        <select id="occasion" aria-labelledby="occasion_aria" onChange={e => setOccasion({...occasion, value: e.target.value})} onBlur={() => {setOccasion({...occasion, isTouched: true})}} value={occasion.value} required focused={occasion.isTouched.toString()} invalid={occasion.value == "Select an occasion" ? "true" : "false"}>
                             <option key="default">Select an occasion</option>
                             <option key="birthday">Birthday</option>
                             <option key="anniversary">Anniversary</option>
@@ -57,7 +53,6 @@ function BookingForm(props) {
                 </div>
             </div>
         </div>
-        <Footer></Footer>
         </>
     )
 }

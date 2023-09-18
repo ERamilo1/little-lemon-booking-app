@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import BookingForm from './BookingForm';
+import { Router } from 'react-router-dom';
 
 test('Renders the BookingForm heading', () => {
   const handleSubmit = jest.fn();
@@ -58,11 +59,14 @@ test("Input elements have the correct attributes.", () => {
 
   render(<BookingForm onSubmit={handleSubmit}/>)
 
+  const nameInput = screen.getByLabelText(/Name/);
   const dateInput = screen.getByLabelText(/Date/);
   const timeInput = screen.getByLabelText(/Time/);
   const numberInput = screen.getByLabelText(/Number of Guests/);
   const occasionInput = screen.getByLabelText(/Occasion/);
 
+  expect(nameInput).toHaveAttribute("type", "text");
+  expect(nameInput).toHaveAttribute("required");
   expect(dateInput).toHaveAttribute("type", "date");
   expect(dateInput).toHaveAttribute("required");
   expect(timeInput).toHaveAttribute("required");
@@ -77,12 +81,15 @@ test("Submit button is not disabled when all inputs are valid.", () => {
 
   render(<BookingForm onSubmit={handleSubmit} {...props}/>)
 
+  const nameInput = screen.getByLabelText(/Name/);
   const dateInput = screen.getByLabelText(/Date/);
   const timeInput = screen.getByLabelText(/Time/);
   const numberInput = screen.getByLabelText(/Number of Guests/);
   const occasionInput = screen.getByLabelText(/Occasion/);
   const submitButton = document.getElementById("submit");
 
+  fireEvent.click(nameInput);
+  fireEvent.change(nameInput, {"target": {"value":"John"}});
   fireEvent.click(dateInput);
   fireEvent.change(dateInput, {"target": {"value": "2123-01-01"}});
   fireEvent.click(timeInput);
@@ -101,14 +108,44 @@ test("Submit button is disabled when all inputs are valid, except date.", () => 
 
   render(<BookingForm onSubmit={handleSubmit} {...props}/>)
 
+  const nameInput = screen.getByLabelText(/Name/);
   const dateInput = screen.getByLabelText(/Date/);
   const timeInput = screen.getByLabelText(/Time/);
   const numberInput = screen.getByLabelText(/Number of Guests/);
   const occasionInput = screen.getByLabelText(/Occasion/);
   const submitButton = document.getElementById("submit");
 
+  fireEvent.click(nameInput);
+  fireEvent.change(nameInput, {"target": {"value":"John"}});
   fireEvent.click(dateInput);
   fireEvent.change(dateInput, {"target": {"value": ""}});
+  fireEvent.click(timeInput);
+  fireEvent.change(timeInput, {"target": {"value": "17:00"}});
+  fireEvent.click(numberInput);
+  fireEvent.change(numberInput, {"target": {"value": "7"}});
+  fireEvent.click(occasionInput);
+  fireEvent.change(occasionInput, {"target": {"value": "other"}});
+
+  expect(submitButton).toHaveAttribute("disabled");
+});
+
+test("Submit button is disabled when all inputs are valid, except name.", () => {
+  const handleSubmit = jest.fn();
+  const props = {dispatch: jest.fn()};
+
+  render(<BookingForm onSubmit={handleSubmit} {...props}/>)
+
+  const nameInput = screen.getByLabelText(/Name/);
+  const dateInput = screen.getByLabelText(/Date/);
+  const timeInput = screen.getByLabelText(/Time/);
+  const numberInput = screen.getByLabelText(/Number of Guests/);
+  const occasionInput = screen.getByLabelText(/Occasion/);
+  const submitButton = document.getElementById("submit");
+
+  fireEvent.click(nameInput);
+  fireEvent.change(nameInput, {"target": {"value":""}});
+  fireEvent.click(dateInput);
+  fireEvent.change(dateInput, {"target": {"value": "2123-01-01"}});
   fireEvent.click(timeInput);
   fireEvent.change(timeInput, {"target": {"value": "17:00"}});
   fireEvent.click(numberInput);
@@ -125,12 +162,15 @@ test("Submit button is disabled when all inputs are valid, except time.", () => 
 
   render(<BookingForm onSubmit={handleSubmit} {...props}/>)
 
+  const nameInput = screen.getByLabelText(/Name/);
   const dateInput = screen.getByLabelText(/Date/);
   const timeInput = screen.getByLabelText(/Time/);
   const numberInput = screen.getByLabelText(/Number of Guests/);
   const occasionInput = screen.getByLabelText(/Occasion/);
   const submitButton = document.getElementById("submit");
 
+  fireEvent.click(nameInput);
+  fireEvent.change(nameInput, {"target": {"value":"John"}});
   fireEvent.click(dateInput);
   fireEvent.change(dateInput, {"target": {"value": "2123-01-01"}});
   fireEvent.click(timeInput);
@@ -149,12 +189,15 @@ test("Submit button is disabled when number of guests exceeds 10 people, while a
 
   render(<BookingForm onSubmit={handleSubmit} {...props}/>)
 
+  const nameInput = screen.getByLabelText(/Name/);
   const dateInput = screen.getByLabelText(/Date/);
   const timeInput = screen.getByLabelText(/Time/);
   const numberInput = screen.getByLabelText(/Number of Guests/);
   const occasionInput = screen.getByLabelText(/Occasion/);
   const submitButton = document.getElementById("submit");
 
+  fireEvent.click(nameInput);
+  fireEvent.change(nameInput, {"target": {"value":"John"}});
   fireEvent.click(dateInput);
   fireEvent.change(dateInput, {"target": {"value": "2123-01-01"}});
   fireEvent.click(timeInput);
@@ -173,12 +216,15 @@ test("Submit button is disabled when all inputs are valid, except occasion.", ()
 
   render(<BookingForm onSubmit={handleSubmit} {...props}/>)
 
+  const nameInput = screen.getByLabelText(/Name/);
   const dateInput = screen.getByLabelText(/Date/);
   const timeInput = screen.getByLabelText(/Time/);
   const numberInput = screen.getByLabelText(/Number of Guests/);
   const occasionInput = screen.getByLabelText(/Occasion/);
   const submitButton = document.getElementById("submit");
 
+  fireEvent.click(nameInput);
+  fireEvent.change(nameInput, {"target": {"value":"John"}});
   fireEvent.click(dateInput);
   fireEvent.change(dateInput, {"target": {"value": "2123-01-01"}});
   fireEvent.click(timeInput);
