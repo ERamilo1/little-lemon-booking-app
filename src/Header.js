@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Nav from "./Nav";
 import logo from "./images/Logo.svg";
 import {useRef, useEffect} from "react"
@@ -14,7 +15,7 @@ function Header(){
             if(!headerElement){
                 return;
             }
-            if(prevScrollPos > currentScrollPos){
+            if(prevScrollPos >= currentScrollPos){
                 headerElement.style.transform = "translateY(0px)";
                 headerElement.style.boxShadow = "0px 8px 10px 0px rgba(0, 0, 0, 0.3)"
             } else{
@@ -38,7 +39,9 @@ function Header(){
         <div className="headerBG" ref={headerRef}>
             <div className="header">
                 <header>
-                    <img src={logo} className="header"/>
+                    <Link to="/">
+                        <img src={logo} className="header"/>
+                    </Link>
                 </header>
                 <Nav/>
             </div>

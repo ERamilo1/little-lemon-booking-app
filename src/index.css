@@ -94,7 +94,7 @@ header {
   margin: auto;
 }
 
-img.header {
+header a {
   display: block;
   height: 40px;
   margin-top: auto;
@@ -104,6 +104,7 @@ img.header {
 div.headerBG {
   grid-column: 1/ span 3;
   width: 100%;
+  min-width: 375px;
   background-color: white;
   position: sticky;
   top: 0px;
@@ -124,7 +125,7 @@ nav {
   max-width: 932px;
   font-family: Karla;
   font-weight: bold;
-  margin-left: 10px;
+  margin-left: 20px;
 }
 
 ul.nav {
@@ -885,4 +886,32 @@ input#submit:enabled:active {
     margin-right: auto;
     width: 100%;
   }
+}
+
+div.placeHolderBG {
+  display: flex;
+  background-color: #495E57;
+  grid-column: 1/ span 3;
+  color: white;
+  height: 300px;
+  min-width: 375px;
+}
+
+div.placeHolderBG h2{
+  width: fit-content;
+  margin: auto auto auto auto;
+}
+
+h2.confirmation {
+  color: white;
+  width: 1080px;
+  height: 686.875px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }

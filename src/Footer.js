@@ -5,7 +5,9 @@ function Footer(){
     return(
         <div className="footer">
             <footer>
-                <img src={logo} className="footer"/>
+                <Link to="/">
+                    <img src={logo} className="footer"/>
+                </Link>
                 <ul className="footer" id="footerNav">
                     <h4>Navigation</h4>
                     <li><Link to="/">Home</Link></li>

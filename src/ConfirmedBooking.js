@@ -1,6 +1,19 @@
+import Footer from "./Footer";
+import Header from "./Header";
+
 function ConfirmedBooking(){
     return(
-        <h1>Your reservation has been confirmed.</h1>
+        <>
+            <Header/>
+            <div className="formBG">
+                <div className="formIMG">
+                    <div className="form">
+                        <h2 className="confirmation">Your Reservation has been booked!</h2>
+                    </div>
+                </div>
+            </div>
+            <Footer/>
+        </>
     )
 }
 
