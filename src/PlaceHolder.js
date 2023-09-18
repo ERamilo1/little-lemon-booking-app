@@ -1,9 +1,9 @@
-function PlaceHolder() {
+function PlaceHolder(props) {
 
     return(
         <>
             <div className="placeHolderBG">
-                <h2>Coming Soon!</h2>
+                <h2>{props.children}</h2>
             </div>
         </>
     );

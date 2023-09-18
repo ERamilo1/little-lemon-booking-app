@@ -8,7 +8,7 @@ function About() {
     return(
         <>
             <Header/>
-            <PlaceHolder/>
+            <PlaceHolder>About Page Coming Soon!</PlaceHolder>
             <Footer/>
         </>
     )

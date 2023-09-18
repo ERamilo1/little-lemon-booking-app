@@ -8,7 +8,7 @@ function Login() {
     return(
         <>
             <Header/>
-            <PlaceHolder/>
+                <PlaceHolder>Login Page Coming Soon!</PlaceHolder>
             <Footer/>
         </>
     )

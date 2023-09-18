@@ -7,7 +7,7 @@ function Menu() {
     return(
         <>
             <Header/>
-            <PlaceHolder/>
+                <PlaceHolder>Menu Page Coming Soon!</PlaceHolder>
             <Footer/>
         </>
     );

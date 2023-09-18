@@ -8,7 +8,7 @@ function Online() {
     return(
         <>
             <Header/>
-            <PlaceHolder/>
+                <PlaceHolder>Online Orders Coming Soon!</PlaceHolder>
             <Footer/>
         </>
     )
